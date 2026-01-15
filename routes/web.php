@@ -2,10 +2,11 @@
 
 use App\Http\Controllers\BarberController;
 use App\Http\Controllers\ServiceController;
+use App\Http\Controllers\AppointmentController;
+use App\Http\Controllers\AdminDashboardController;
+use App\Http\Controllers\FrontendController;
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [FrontendController::class, 'index'])->name('home');
 
 Route::middleware([
     'auth:sanctum',
@@ -23,6 +24,8 @@ Route::middleware([
 
     // Admin Routes
     Route::middleware(['admin'])->prefix('admin')->group(function () {
+        Route::get('/dashboard', [AdminDashboardController::class, 'index'])->name('admin.dashboard');
+        
         Route::resource('barbers', BarberController::class);
         Route::resource('services', ServiceController::class);
         
