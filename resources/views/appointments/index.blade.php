@@ -1,11 +1,11 @@
 <x-app-layout>
     <x-slot name="header">
         <div class="flex justify-between items-center">
-            <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
-                {{ __('My Appointments') }}
+            <h2 class="font-black text-2xl text-gray-800 dark:text-gray-100 uppercase tracking-tight">
+                {{ __('My Grooming History') }}
             </h2>
-            <a href="{{ route('appointments.create') }}" class="inline-flex items-center px-4 py-2 bg-indigo-600 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-indigo-700 active:bg-indigo-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 transition ease-in-out duration-150">
-                {{ __('Book New') }}
+            <a href="{{ route('appointments.create') }}" class="inline-flex items-center px-6 py-3 bg-indigo-600 border border-transparent rounded-xl font-black text-xs text-white uppercase tracking-[0.2em] hover:bg-indigo-700 transition duration-300 shadow-lg shadow-indigo-500/20">
+                <i class="fas fa-plus mr-2 text-[10px]"></i> {{ __('Book New Experience') }}
             </a>
         </div>
     </x-slot>
@@ -13,64 +13,73 @@
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             @if(session('success'))
-                <div class="mb-4 p-4 bg-green-100 border-l-4 border-green-500 text-green-700">
-                    {{ session('success') }}
+                <div class="mb-8 p-5 bg-emerald-50 dark:bg-emerald-900/20 border border-emerald-100 dark:border-emerald-800 rounded-2xl flex items-center text-emerald-800 dark:text-emerald-400">
+                    <i class="fas fa-check-circle mr-3"></i>
+                    <span class="text-sm font-bold">{{ session('success') }}</span>
                 </div>
             @endif
 
-            <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-xl sm:rounded-lg">
-                <div class="p-6">
-                    @forelse($appointments as $appointment)
-                        <div class="mb-6 last:mb-0 border-b last:border-0 pb-6 last:pb-0 border-gray-100 dark:border-gray-700 flex flex-col md:flex-row md:items-center justify-between gap-4">
-                            <div class="flex items-start gap-4">
-                                <div class="bg-indigo-100 dark:bg-indigo-900/40 p-3 rounded-lg flex flex-col items-center justify-center min-w-[80px]">
-                                    <span class="text-xs uppercase font-bold text-indigo-600 dark:text-indigo-400">{{ \Carbon\Carbon::parse($appointment->appointment_date)->format('M') }}</span>
-                                    <span class="text-2xl font-black text-indigo-900 dark:text-white">{{ \Carbon\Carbon::parse($appointment->appointment_date)->format('d') }}</span>
+            <div class="space-y-6">
+                @forelse($appointments as $appointment)
+                    <div class="bg-white dark:bg-gray-900/50 backdrop-blur-md overflow-hidden shadow-2xl shadow-black/5 rounded-[2rem] border border-gray-100 dark:border-gray-800 p-8 hover:border-indigo-500/30 transition-all duration-300 group">
+                        <div class="flex flex-col md:flex-row md:items-center justify-between gap-8">
+                            <div class="flex items-start gap-8">
+                                <!-- Date Badge -->
+                                <div class="bg-indigo-50 dark:bg-indigo-900/40 p-5 rounded-2xl flex flex-col items-center justify-center min-w-[100px] border border-indigo-100 dark:border-indigo-800 group-hover:bg-indigo-600 group-hover:border-indigo-600 transition-all duration-500">
+                                    <span class="text-[10px] uppercase font-black text-indigo-400 dark:text-indigo-400 group-hover:text-indigo-200 tracking-[0.3em] mb-1">{{ \Carbon\Carbon::parse($appointment->appointment_date)->format('M') }}</span>
+                                    <span class="text-3xl font-black text-indigo-900 dark:text-white group-hover:text-white leading-none">{{ \Carbon\Carbon::parse($appointment->appointment_date)->format('d') }}</span>
                                 </div>
-                                <div>
-                                    <h3 class="text-lg font-bold text-gray-900 dark:text-white">{{ $appointment->service->name }}</h3>
-                                    <p class="text-sm text-gray-600 dark:text-gray-400">with <span class="font-semibold">{{ $appointment->barber->name }}</span></p>
-                                    <div class="flex items-center gap-4 mt-2 text-xs text-gray-500">
-                                        <span class="flex items-center gap-1">
-                                            <i class="far fa-clock"></i> {{ \Carbon\Carbon::parse($appointment->start_time)->format('h:i A') }}
+                                
+                                <div class="space-y-4">
+                                    <div>
+                                        <h3 class="text-xl font-black text-gray-900 dark:text-white uppercase tracking-tight">{{ $appointment->service->name }}</h3>
+                                        <p class="text-[10px] font-black text-gray-400 uppercase tracking-widest mt-1">
+                                            Curated by <span class="text-indigo-600 dark:text-indigo-400">{{ $appointment->barber->name }}</span>
+                                        </p>
+                                    </div>
+                                    
+                                    <div class="flex flex-wrap items-center gap-6">
+                                        <span class="flex items-center text-[10px] font-bold text-gray-500 uppercase tracking-widest">
+                                            <i class="far fa-clock mr-2 text-indigo-500"></i> {{ \Carbon\Carbon::parse($appointment->start_time)->format('h:i A') }}
                                         </span>
-                                        <span class="flex items-center gap-1">
-                                            <i class="fas fa-coins"></i> LKR {{ number_format($appointment->total_price, 0) }}
+                                        <span class="flex items-center text-[10px] font-bold text-gray-500 uppercase tracking-widest">
+                                            <i class="fas fa-coins mr-2 text-emerald-500"></i> LKR {{ number_format($appointment->total_price, 0) }}
+                                        </span>
+                                        <span class="flex items-center text-[10px] font-bold text-gray-500 uppercase tracking-widest">
+                                            <i class="fas fa-stopwatch mr-2 text-indigo-500"></i> {{ $appointment->service->duration_minutes }} Mins
                                         </span>
                                     </div>
                                 </div>
                             </div>
                             
-                            <div class="flex items-center justify-between md:justify-end gap-6 text-right">
-                                <div>
-                                    <span class="text-xs uppercase font-bold text-gray-400 block mb-1">Status</span>
+                            <div class="flex items-center justify-between md:justify-end gap-10 text-right">
+                                <div class="flex flex-col items-end">
+                                    <span class="text-[10px] font-black text-gray-400 uppercase tracking-[0.2em] mb-3">Booking Status</span>
                                     @if($appointment->status === 'pending')
-                                        <span class="px-3 py-1 bg-yellow-100 text-yellow-800 rounded-full text-xs font-bold uppercase">Pending</span>
+                                        <span class="px-4 py-1.5 bg-amber-100 text-amber-800 dark:bg-amber-900/30 dark:text-amber-400 rounded-lg text-[10px] font-black uppercase tracking-widest">Pending Review</span>
                                     @elseif($appointment->status === 'confirmed')
-                                        <span class="px-3 py-1 bg-green-100 text-green-800 rounded-full text-xs font-bold uppercase">Confirmed</span>
+                                        <span class="px-4 py-1.5 bg-emerald-100 text-emerald-800 dark:bg-emerald-900/30 dark:text-emerald-400 rounded-lg text-[10px] font-black uppercase tracking-widest">Confirmed Slot</span>
                                     @elseif($appointment->status === 'completed')
-                                        <span class="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-xs font-bold uppercase">Completed</span>
+                                        <span class="px-4 py-1.5 bg-indigo-100 text-indigo-800 dark:bg-indigo-900/30 dark:text-indigo-400 rounded-lg text-[10px] font-black uppercase tracking-widest">Completed</span>
                                     @else
-                                        <span class="px-3 py-1 bg-red-100 text-red-800 rounded-full text-xs font-bold uppercase">Cancelled</span>
+                                        <span class="px-4 py-1.5 bg-rose-100 text-rose-800 dark:bg-rose-900/30 dark:text-rose-400 rounded-lg text-[10px] font-black uppercase tracking-widest">Cancelled</span>
                                     @endif
                                 </div>
                             </div>
                         </div>
-                    @empty
-                        <div class="text-center py-12">
-                            <div class="text-gray-300 dark:text-gray-600 mb-4">
-                                <i class="fas fa-calendar-times fa-4x"></i>
-                            </div>
-                            <h3 class="text-lg font-medium text-gray-900 dark:text-white">No appointments found</h3>
-                            <p class="text-gray-500 mt-2">Ready for a fresh look? Book your first session now!</p>
-                            <div class="mt-6">
-                                <a href="{{ route('appointments.create') }}" class="inline-flex items-center px-6 py-3 bg-indigo-600 border border-transparent rounded-md font-bold text-white uppercase tracking-widest hover:bg-indigo-700 active:bg-indigo-900 transition ease-in-out duration-150">
-                                    Book Now
-                                </a>
-                            </div>
+                    </div>
+                @empty
+                    <div class="bg-white dark:bg-gray-900/50 backdrop-blur-md overflow-hidden shadow-2xl shadow-black/5 rounded-[3rem] border border-gray-100 dark:border-gray-800 p-20 text-center">
+                        <div class="w-24 h-24 bg-gray-50 dark:bg-gray-800 rounded-full flex items-center justify-center mb-8 mx-auto">
+                            <i class="fas fa-calendar-times text-gray-200 dark:text-gray-700 text-4xl"></i>
                         </div>
-                    @endforelse
-                </div>
+                        <h3 class="text-2xl font-black text-gray-900 dark:text-white uppercase tracking-tight mb-4">No Sessions Yet</h3>
+                        <p class="text-gray-500 font-medium text-sm mb-10 max-w-sm mx-auto uppercase tracking-wide">Ready for a transformation? Your first premium experience is just a click away.</p>
+                        <a href="{{ route('appointments.create') }}" class="inline-flex items-center px-10 py-4 bg-indigo-600 text-white font-black text-xs uppercase tracking-[0.3em] rounded-2xl hover:bg-black transition-all shadow-xl shadow-indigo-500/10">
+                            Book Now
+                        </a>
+                    </div>
+                @endforelse
             </div>
         </div>
     </div>

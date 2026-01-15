@@ -11,11 +11,38 @@
         @vite(['resources/css/app.css', 'resources/js/app.js'])
         <style>
             html { scroll-behavior: smooth; }
-            body { font-family: 'Inter', sans-serif; }
+            body { 
+                font-family: 'Inter', sans-serif; 
+                background: #050505;
+            }
             h1, h2, h3 { font-family: 'Playfair Display', serif; }
             .bg-gold { background-color: #D4AF37; }
             .text-gold { color: #D4AF37; }
             .border-gold { border-color: #D4AF37; }
+            
+            /* Custom Reveal Animations */
+            @keyframes reveal {
+                from { opacity: 0; transform: translateY(20px); }
+                to { opacity: 1; transform: translateY(0); }
+            }
+            .reveal {
+                animation: reveal 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+                opacity: 0;
+            }
+            .delay-100 { animation-delay: 0.1s; }
+            .delay-200 { animation-delay: 0.2s; }
+            .delay-300 { animation-delay: 0.3s; }
+            
+            /* Modern Card Glassmorphism */
+            .glass-card {
+                background: rgba(20, 20, 20, 0.6);
+                backdrop-filter: blur(10px);
+                border: 1px solid rgba(255, 255, 255, 0.05);
+            }
+            .glass-card:hover {
+                border-color: rgba(212, 175, 55, 0.3);
+                background: rgba(25, 25, 25, 0.8);
+            }
         </style>
     </head>
     <body class="antialiased bg-black text-gray-200">
@@ -47,103 +74,114 @@
         </nav>
 
         <!-- Hero Section -->
-        <section id="home" class="relative h-screen flex items-center justify-center overflow-hidden">
+        <section id="home" class="relative min-h-[90vh] flex items-center justify-center overflow-hidden">
             <!-- Background Image with Overlay -->
             <div class="absolute inset-0">
-                <img src="https://images.unsplash.com/photo-1503951914875-452162b0f3f1?q=80&w=2070&auto=format&fit=crop" class="w-full h-full object-cover opacity-40" alt="Barbershop Background">
-                <div class="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black"></div>
+                <img src="https://images.unsplash.com/photo-1503951914875-452162b0f3f1?q=80&w=2070&auto=format&fit=crop" class="w-full h-full object-cover opacity-30" alt="Barbershop Background">
+                <div class="absolute inset-0 bg-gradient-to-b from-black/80 via-black/20 to-black"></div>
             </div>
             
-            <div class="relative z-10 text-center px-4 max-w-4xl mx-auto">
-                <span class="text-gold font-bold tracking-[0.3em] uppercase text-sm mb-4 block animate-fade-in-down">Est. 2024 • Sri Lanka</span>
-                <h1 class="text-5xl md:text-8xl font-black text-white mb-6 leading-tight">PREMIUM GROOMING <br> FOR THE MODERN MAN</h1>
-                <p class="text-lg md:text-xl text-gray-400 mb-10 max-w-2xl mx-auto font-light leading-relaxed">Experience the ultimate in traditional barbering and modern styling. Precision, style, and luxury in every cut.</p>
-                <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                    <a href="{{ route('register') }}" class="bg-gold text-black px-10 py-4 rounded-full font-black text-lg hover:bg-white transition shadow-2xl shadow-gold/20 tracking-wide uppercase">Reserve Your Slot</a>
-                    <a href="#services" class="border border-white/20 px-10 py-4 rounded-full font-bold text-lg hover:bg-white/10 transition backdrop-blur-sm uppercase">Our Services</a>
+            <div class="relative z-10 text-center px-6 max-w-5xl mx-auto">
+                <span class="text-gold font-bold tracking-[0.5em] uppercase text-xs mb-6 block reveal">Est. 2024 • Sri Lanka</span>
+                <h1 class="text-6xl md:text-9xl font-black text-white mb-8 leading-[0.9] reveal delay-100 italic">PREMIUM <br> GROOMING</h1>
+                <p class="text-lg md:text-2xl text-gray-400 mb-12 max-w-2xl mx-auto font-light leading-relaxed reveal delay-200">The ultimate destination for the modern gentleman. Precision cuts and luxury treatments in the heart of Colombo.</p>
+                <div class="flex flex-col sm:flex-row gap-6 justify-center reveal delay-300">
+                    <a href="{{ route('register') }}" class="bg-gold text-black px-12 py-5 rounded-full font-black text-xl hover:bg-white transition-all duration-300 shadow-[0_0_30px_rgba(212,175,55,0.2)] hover:shadow-gold/40 tracking-widest uppercase">Reserve Now</a>
+                    <a href="#services" class="border border-white/10 bg-white/5 px-12 py-5 rounded-full font-bold text-lg hover:bg-white/10 transition-all duration-300 backdrop-blur-md uppercase tracking-widest">Our Services</a>
                 </div>
             </div>
             
-            <!-- Floating Scroll Indicator -->
-            <div class="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center">
-                <div class="w-[1px] h-20 bg-gradient-to-b from-gold to-transparent"></div>
+            <!-- Scroll Indicator -->
+            <div class="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center opacity-30">
+                <span class="text-[10px] uppercase tracking-[0.3em] mb-4">Scroll</span>
+                <div class="w-[1px] h-16 bg-gradient-to-b from-gold to-transparent"></div>
             </div>
         </section>
 
         <!-- Services Section -->
-        <section id="services" class="py-24 bg-zinc-950">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="text-center mb-16">
-                    <h2 class="text-4xl md:text-6xl font-black mb-4">SUPERIOR SERVICES</h2>
-                    <div class="h-1 w-24 bg-gold mx-auto mb-6"></div>
-                    <p class="text-gray-500 max-w-xl mx-auto">From signature haircuts to beard sculpting and facial treatments, we offer a range of specialized services tailored to your style.</p>
+        <section id="services" class="py-32 bg-[#050505]">
+            <div class="max-w-7xl mx-auto px-6 sm:px-8">
+                <div class="flex flex-col md:flex-row justify-between items-end mb-20">
+                    <div class="reveal">
+                        <h2 class="text-5xl md:text-7xl font-black mb-6 uppercase">The Menu</h2>
+                        <div class="h-1.5 w-32 bg-gold mb-2"></div>
+                    </div>
+                    <p class="text-gray-500 max-w-sm reveal delay-100 text-lg">Curated grooming services designed to elevate your personal style.</p>
                 </div>
                 
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    @forelse($services as $service)
-                        <div class="group p-8 bg-zinc-900 border border-gray-800 rounded-2xl hover:border-gold/50 transition duration-500">
-                            <div class="flex justify-between items-start mb-6">
-                                <div class="p-3 bg-gold/10 rounded-xl">
-                                    <i class="fas fa-scissors text-gold text-xl"></i>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+                    @forelse($services as $index => $service)
+                        <div class="glass-card group p-10 rounded-3xl transition-all duration-500 reveal" style="animation-delay: {{ $index * 0.1 }}s">
+                            <div class="flex justify-between items-start mb-10">
+                                <div class="w-14 h-14 bg-gold/10 border border-gold/20 rounded-2xl flex items-center justify-center group-hover:bg-gold transition-all duration-500">
+                                    <i class="fas fa-scissors text-gold group-hover:text-black text-2xl"></i>
                                 </div>
-                                <span class="text-2xl font-black text-white">LKR {{ number_format($service->price, 0) }}</span>
+                                <span class="text-3xl font-black text-white group-hover:text-gold transition-colors">{{ number_format($service->price, 0) }} <span class="text-xs text-gray-500">LKR</span></span>
                             </div>
-                            <h3 class="text-2xl font-bold mb-3 text-white group-hover:text-gold transition">{{ $service->name }}</h3>
-                            <p class="text-gray-500 text-sm mb-6 leading-relaxed">{{ $service->description ?? 'Premium grooming service using the finest products.' }}</p>
-                            <div class="flex items-center text-xs font-bold text-gray-400 uppercase tracking-widest border-t border-gray-800 pt-6">
-                                <i class="far fa-clock mr-2 text-gold"></i>
-                                {{ $service->duration_minutes }} Minutes
+                            <h3 class="text-3xl font-bold mb-4 text-white uppercase tracking-tight">{{ $service->name }}</h3>
+                            <p class="text-gray-500 text-base mb-10 leading-relaxed font-light">{{ $service->description ?? 'Premium grooming service using the finest products.' }}</p>
+                            <div class="flex items-center text-[10px] font-black text-gray-400 uppercase tracking-[0.2em] border-t border-white/5 pt-8">
+                                <i class="far fa-clock mr-3 text-gold"></i>
+                                {{ $service->duration_minutes }} Minutes Experience
                             </div>
                         </div>
                     @empty
-                        <div class="col-span-full text-center py-12 text-gray-500 italic">No services listed yet. Come back soon!</div>
+                        <div class="col-span-full text-center py-24 text-gray-500 italic text-xl">Our service menu is being updated.</div>
                     @endforelse
                 </div>
             </div>
         </section>
 
         <!-- Barbers Section -->
-        <section id="barbers" class="py-24 bg-black">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="flex flex-col md:flex-row justify-between items-end mb-16">
-                    <div>
-                        <h2 class="text-4xl md:text-6xl font-black mb-4">MEET THE MASTERS</h2>
-                        <div class="h-1 w-24 bg-gold mb-6"></div>
+        <section id="barbers" class="py-32 bg-black relative">
+            <div class="absolute top-0 right-0 w-1/3 h-full bg-gold/5 blur-3xl rounded-full translate-x-1/2"></div>
+            
+            <div class="max-w-7xl mx-auto px-6 sm:px-8 relative z-10">
+                <div class="flex flex-col md:flex-row justify-between items-end mb-20">
+                    <div class="reveal">
+                        <h2 class="text-5xl md:text-7xl font-black mb-6 uppercase">Master Artisans</h2>
+                        <div class="h-1.5 w-32 bg-gold"></div>
                     </div>
-                    <p class="text-gray-500 max-w-md hidden md:block">Our barbers are more than just stylists – they're masters of their craft with years of experience and sharp attention to detail.</p>
+                    <p class="text-gray-500 max-w-md hidden md:block reveal delay-100 text-lg">Our team represents the pinnacle of traditional craft meeting modern aesthetics.</p>
                 </div>
 
-                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-                    @forelse($barbers as $barber)
-                        <div class="group relative aspect-[3/4] overflow-hidden rounded-2xl bg-zinc-900">
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
+                    @forelse($barbers as $index => $barber)
+                        <div class="group relative aspect-[3/4] overflow-hidden rounded-3xl bg-zinc-900 reveal" style="animation-delay: {{ $index * 0.15 }}s">
                             @if($barber->image_url)
-                                <img src="{{ Storage::url($barber->image_url) }}" class="w-full h-full object-cover transition duration-700 group-hover:scale-110 grayscale hover:grayscale-0" alt="{{ $barber->name }}">
+                                <img src="{{ $barber->image_url }}" class="w-full h-full object-cover transition-all duration-[1.5s] group-hover:scale-110 grayscale hover:grayscale-0" alt="{{ $barber->name }}">
                             @else
-                                <div class="w-full h-full flex items-center justify-center text-gray-700">
-                                    <i class="fas fa-user-circle text-8xl"></i>
+                                <div class="w-full h-full flex items-center justify-center text-gray-800 bg-zinc-900">
+                                    <i class="fas fa-user-circle text-9xl"></i>
                                 </div>
                             @endif
                             <!-- Overlay -->
-                            <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-90"></div>
-                            <div class="absolute bottom-0 left-0 p-6 w-full">
-                                <h3 class="text-white text-2xl font-bold mb-1">{{ $barber->name }}</h3>
-                                <p class="text-gold text-xs font-bold uppercase tracking-widest truncate">{{ $barber->bio ?? 'Senior Stylist' }}</p>
+                            <div class="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent opacity-80 group-hover:opacity-100 transition-opacity duration-500"></div>
+                            <div class="absolute bottom-0 left-0 p-8 w-full translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
+                                <h3 class="text-white text-3xl font-black mb-2">{{ $barber->name }}</h3>
+                                <p class="text-gold text-[10px] font-black uppercase tracking-[0.3em] opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100">{{ $barber->bio ?? 'Senior Stylist' }}</p>
                             </div>
                         </div>
                     @empty
-                        <div class="col-span-full text-center py-12 text-gray-500 italic">Our team is getting ready. Check back soon!</div>
+                        <div class="col-span-full text-center py-24 text-gray-500 italic text-xl">The team is currently preparing for your arrival.</div>
                     @endforelse
                 </div>
             </div>
         </section>
 
         <!-- CTA Section -->
-        <section class="py-24 relative overflow-hidden">
-            <div class="absolute inset-0 bg-gold opacity-10 blur-3xl rounded-full -translate-x-1/2 -translate-y-1/2"></div>
-            <div class="max-w-4xl mx-auto px-4 relative z-10 text-center">
-                <h2 class="text-4xl md:text-6xl font-black mb-8 leading-tight">READY FOR A NEW LOOK?</h2>
-                <p class="text-gray-400 mb-12 text-lg">Join the hundreds of dapper gentlemen who trust BARBERSHOP.LK with their style. Booking takes less than 60 seconds.</p>
-                <a href="{{ route('register') }}" class="bg-white text-black px-12 py-5 rounded-full font-black text-xl hover:bg-gold transition shadow-2xl shadow-gold/10 tracking-widest">SECURE YOUR APPOINTMENT</a>
+        <section class="py-40 relative overflow-hidden bg-[#0a0a0a]">
+            <div class="absolute inset-0 flex items-center justify-center">
+                <div class="w-[800px] h-[800px] bg-gold/5 blur-[120px] rounded-full"></div>
+            </div>
+            
+            <div class="max-w-4xl mx-auto px-6 relative z-10 text-center reveal">
+                <span class="text-gold font-black tracking-[0.4em] uppercase text-[10px] mb-8 block">Exclusive Experience</span>
+                <h2 class="text-5xl md:text-8xl font-black mb-10 leading-[0.9] uppercase text-white">REDESIGN <br> YOURSELF</h2>
+                <p class="text-gray-400 mb-16 text-xl font-light max-w-2xl mx-auto leading-relaxed">Each appointment is more than just a cut; it's a statement of style and precision.</p>
+                <div class="flex justify-center">
+                    <a href="{{ route('register') }}" class="bg-white text-black px-16 py-6 rounded-full font-black text-2xl hover:bg-gold transition-all duration-300 shadow-2xl hover:shadow-gold/20 tracking-wider uppercase">Book The Experience</a>
+                </div>
             </div>
         </section>
 
