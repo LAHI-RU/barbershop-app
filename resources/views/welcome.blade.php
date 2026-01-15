@@ -10,6 +10,7 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
         @vite(['resources/css/app.css', 'resources/js/app.js'])
         <style>
+            html { scroll-behavior: smooth; }
             body { font-family: 'Inter', sans-serif; }
             h1, h2, h3 { font-family: 'Playfair Display', serif; }
             .bg-gold { background-color: #D4AF37; }
