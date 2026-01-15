@@ -1,6 +1,6 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\BarberController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -14,4 +14,9 @@ Route::middleware([
     Route::get('/dashboard', function () {
         return view('dashboard');
     })->name('dashboard');
+
+    // Admin Routes
+    Route::middleware(['admin'])->prefix('admin')->group(function () {
+        Route::resource('barbers', BarberController::class);
+    });
 });
