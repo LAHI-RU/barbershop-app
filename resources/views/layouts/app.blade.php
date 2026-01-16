@@ -24,6 +24,18 @@
             .bg-gold { background-color: #D4AF37; }
             .text-gold { color: #D4AF37; }
             .border-gold { border-color: #D4AF37; }
+            
+            /* Fix Date/Time Picker Icons for Dark Mode */
+            input::-webkit-calendar-picker-indicator {
+                filter: invert(1) brightness(0.8);
+                cursor: pointer;
+                transition: all 0.2s;
+            }
+            input:focus::-webkit-calendar-picker-indicator,
+            input::-webkit-calendar-picker-indicator:hover {
+                filter: invert(75%) sepia(50%) saturate(1000%) hue-rotate(5deg);
+                brightness(1);
+            }
         </style>
     </head>
     <body class="font-sans antialiased bg-[#050505] text-gray-200">
