@@ -45,7 +45,7 @@
             }
         </style>
     </head>
-    <body class="antialiased bg-black text-gray-200">
+    <body class="antialiased bg-black text-gray-200 overflow-x-hidden">
         
         <!-- Navigation -->
         <nav class="fixed w-full z-50 bg-black/80 backdrop-blur-md border-b border-gray-800">
@@ -77,8 +77,8 @@
         <section id="home" class="relative min-h-[90vh] flex items-center justify-center overflow-hidden">
             <!-- Background Image with Overlay -->
             <div class="absolute inset-0">
-                <img src="https://images.unsplash.com/photo-1503951914875-452162b0f3f1?q=80&w=2070&auto=format&fit=crop" class="w-full h-full object-cover opacity-30" alt="Barbershop Background">
-                <div class="absolute inset-0 bg-gradient-to-b from-black/80 via-black/20 to-black"></div>
+                <img src="{{ asset('images/herobg.webp') }}" class="w-full h-full object-cover object-top opacity-70" alt="Barbershop Background">
+                <div class="absolute inset-0 bg-gradient-to-b from-black/50 via-black/40 to-black"></div>
             </div>
             
             <div class="relative z-10 text-center px-6 max-w-5xl mx-auto">
@@ -92,9 +92,9 @@
             </div>
             
             <!-- Scroll Indicator -->
-            <div class="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center opacity-30">
+            <div class="absolute bottom-6 left-1/2 -translate-x-1/2 flex flex-col items-center opacity-30">
                 <span class="text-[10px] uppercase tracking-[0.3em] mb-4">Scroll</span>
-                <div class="w-[1px] h-16 bg-gradient-to-b from-gold to-transparent"></div>
+                <div class="w-[1px] h-1/2 bg-gradient-to-b from-gold to-transparent"></div>
             </div>
         </section>
 
