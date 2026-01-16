@@ -70,8 +70,8 @@
                     </div>
                 @empty
                     <div class="bg-white dark:bg-gray-900/50 backdrop-blur-md overflow-hidden shadow-2xl shadow-black/5 rounded-[3rem] border border-gray-100 dark:border-gray-800 p-20 text-center">
-                        <div class="w-24 h-24 bg-gray-50 dark:bg-gray-800 rounded-full flex items-center justify-center mb-8 mx-auto">
-                            <i class="fas fa-calendar-times text-gray-800 text-4xl"></i>
+                        <div class="w-24 h-24 bg-gold/5 dark:bg-gold/10 rounded-full flex items-center justify-center mb-8 mx-auto border border-gold/10">
+                            <i class="fas fa-calendar-times text-gold text-4xl"></i>
                         </div>
                         <h3 class="text-2xl font-black text-gray-900 dark:text-white uppercase tracking-tight mb-4">No Sessions Yet</h3>
                         <p class="text-gray-500 font-medium text-sm mb-10 max-w-sm mx-auto uppercase tracking-wide">Ready for a transformation? Your first premium experience is just a click away.</p>

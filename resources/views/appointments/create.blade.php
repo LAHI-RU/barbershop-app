@@ -22,9 +22,9 @@
                             <div class="space-y-3">
                                 <label for="barber_id" class="text-[10px] font-black text-gray-400 uppercase tracking-[0.2em] ml-1">Master Artisan</label>
                                 <select name="barber_id" id="barber_id" class="block w-full bg-black/50 dark:bg-black/50 border border-gray-800 rounded-2xl p-4 text-sm font-bold text-gray-900 dark:text-gray-100 focus:ring-2 focus:ring-gold focus:border-gold transition-all" required>
-                                    <option value="" class="font-medium">-- Choose Your Barber --</option>
+                                    <option value="" class="bg-white text-black font-medium">-- Choose Your Barber --</option>
                                     @foreach($barbers as $barber)
-                                        <option value="{{ $barber->id }}" {{ old('barber_id') == $barber->id ? 'selected' : '' }}>
+                                        <option value="{{ $barber->id }}" class="bg-white text-black" {{ old('barber_id') == $barber->id ? 'selected' : '' }}>
                                             {{ $barber->name }}
                                         </option>
                                     @endforeach
@@ -36,9 +36,9 @@
                             <div class="space-y-3">
                                 <label for="service_id" class="text-[10px] font-black text-gray-400 uppercase tracking-[0.2em] ml-1">Select Service</label>
                                 <select name="service_id" id="service_id" class="block w-full bg-black/50 dark:bg-black/50 border border-gray-800 rounded-2xl p-4 text-sm font-bold text-gray-900 dark:text-gray-100 focus:ring-2 focus:ring-gold focus:border-gold transition-all" required>
-                                    <option value="" class="font-medium">-- Choose A Service --</option>
+                                    <option value="" class="bg-white text-black font-medium">-- Choose A Service --</option>
                                     @foreach($services as $service)
-                                        <option value="{{ $service->id }}" {{ old('service_id') == $service->id ? 'selected' : '' }}>
+                                        <option value="{{ $service->id }}" class="bg-white text-black" {{ old('service_id') == $service->id ? 'selected' : '' }}>
                                             {{ $service->name }} (LKR {{ number_format($service->price, 0) }})
                                         </option>
                                     @endforeach
