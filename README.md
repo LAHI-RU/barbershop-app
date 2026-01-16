@@ -6,9 +6,6 @@
 
 **BARBERSHOP.LK** is a state-of-the-art management system designed for high-end barbershops. It combines a luxurious user experience with powerful administrative tools to manage appointments, barbers, and services seamlessly.
 
-> [!IMPORTANT]
-> This application is built with the latest modern web technologies to ensure performance, security, and a premium look.
-
 ## 🚀 Key Features
 
 ### Premium Frontend
