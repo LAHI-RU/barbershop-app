@@ -61,7 +61,7 @@
                             <a href="#barbers" class="text-gray-300 hover:text-white px-3 py-2 text-sm font-medium transition">Barbers</a>
                             @if (Route::has('login'))
                                 @auth
-                                    <a href="{{ url('/dashboard') }}" class="bg-gold text-black px-5 py-2 rounded-full text-sm font-bold transition hover:bg-white">Dashboard</a>
+                                    <a href="{{ Auth::user()->dashboard_url }}" class="bg-gold text-black px-5 py-2 rounded-full text-sm font-bold transition hover:bg-white">Dashboard</a>
                                 @else
                                     <a href="{{ route('login') }}" class="text-gray-300 hover:text-white px-3 py-2 text-sm font-medium">Log in</a>
                                     <a href="{{ route('register') }}" class="bg-gold text-black px-6 py-2 rounded-full text-sm font-bold transition hover:bg-white shadow-[0_0_15px_rgba(212,175,55,0.4)]">Book Now</a>

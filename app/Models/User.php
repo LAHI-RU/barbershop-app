@@ -73,4 +73,14 @@ class User extends Authenticatable
     {
         return $this->hasMany(Appointment::class);
     }
+
+    /**
+     * Get the dashboard URL for the user.
+     *
+     * @return string
+     */
+    public function getDashboardUrlAttribute()
+    {
+        return $this->is_admin ? route('admin.dashboard') : route('dashboard');
+    }
 }
