@@ -82,7 +82,7 @@
             </div>
             
             <div class="relative z-10 text-center px-6 max-w-5xl mx-auto">
-                <span class="text-gold font-bold tracking-[0.5em] uppercase text-xs mb-6 block reveal">Est. 2024 • Sri Lanka</span>
+                <span class="text-gold font-bold tracking-[0.5em] uppercase text-xs mb-6 block reveal">Est. 2026 • Sri Lanka</span>
                 <h1 class="text-6xl md:text-9xl font-black text-white mb-8 leading-[0.9] reveal delay-100 italic">PREMIUM <br> GROOMING</h1>
                 <p class="text-lg md:text-2xl text-gray-400 mb-12 max-w-2xl mx-auto font-light leading-relaxed reveal delay-200">The ultimate destination for the modern gentleman. Precision cuts and luxury treatments in the heart of Colombo.</p>
                 <div class="flex flex-col sm:flex-row gap-6 justify-center reveal delay-300">
