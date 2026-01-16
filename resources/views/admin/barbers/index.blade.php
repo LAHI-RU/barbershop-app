@@ -79,7 +79,7 @@
                                                 <a href="{{ route('barbers.edit', $barber) }}" class="w-9 h-9 bg-gold/5 text-gold rounded-xl hover:bg-gold hover:text-black transition-all duration-300 border border-gold/20 shadow-lg flex items-center justify-center group/btn" title="Refine Profile">
                                                     <i class="fas fa-edit text-xs group-hover/btn:scale-110 transition-transform"></i>
                                                 </a>
-                                                <form action="{{ route('barbers.destroy', $barber) }}" method="POST" class="inline" onsubmit="return confirm('Archive this master artisan profile?');">
+                                                <form action="{{ route('barbers.destroy', $barber) }}" method="POST" class="inline" onsubmit="event.preventDefault(); confirmElite('Are you certain you wish to decommission this Master Artisan from the roster? This action cannot be undone.', this);">
                                                     @csrf
                                                     @method('DELETE')
                                                     <button type="submit" class="w-9 h-9 bg-rose-500/10 text-rose-500 rounded-xl hover:bg-rose-500 hover:text-black transition-all duration-300 border border-rose-500/20 shadow-lg flex items-center justify-center group/btn" title="Decommission">

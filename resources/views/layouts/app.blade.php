@@ -61,6 +61,8 @@
 
         @stack('modals')
 
+        <x-elite-confirm />
+
         @livewireScripts
     </body>
 </html>
