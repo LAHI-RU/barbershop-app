@@ -193,9 +193,15 @@
                         <span class="text-2xl font-black tracking-tighter text-white block mb-6">BARBER<span class="text-gold">SHOP</span>.LK</span>
                         <p class="text-gray-500 max-w-sm mb-8 leading-relaxed">The premier destination for the modern man. Located in the heart of Sri Lanka, we provide world-class grooming services in a premium, relaxed environment.</p>
                         <div class="flex gap-4">
-                            <a href="#" class="w-10 h-10 rounded-full border border-gray-800 flex items-center justify-center hover:bg-gold hover:text-black transition"><i class="fab fa-instagram"></i></a>
-                            <a href="#" class="w-10 h-10 rounded-full border border-gray-800 flex items-center justify-center hover:bg-gold hover:text-black transition"><i class="fab fa-facebook-f"></i></a>
-                            <a href="#" class="w-10 h-10 rounded-full border border-gray-800 flex items-center justify-center hover:bg-gold hover:text-black transition"><i class="fab fa-whatsapp"></i></a>
+                            <a href="#" class="group w-10 h-10 rounded-full border border-gray-800 flex items-center justify-center hover:bg-white transition-all duration-300">
+                                <i class="fab fa-instagram text-gray-500 group-hover:text-black transition-colors"></i>
+                            </a>
+                            <a href="#" class="group w-10 h-10 rounded-full border border-gray-800 flex items-center justify-center hover:bg-white transition-all duration-300">
+                                <i class="fab fa-facebook-f text-gray-500 group-hover:text-black transition-colors"></i>
+                            </a>
+                            <a href="#" class="group w-10 h-10 rounded-full border border-gray-800 flex items-center justify-center hover:bg-white hover:text-black transition-all duration-300">
+                                <i class="fab fa-whatsapp text-gray-500 group-hover:text-black transition-colors"></i>
+                            </a>
                         </div>
                     </div>
                     <div>
