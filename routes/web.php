@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BarberController;
 use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\AppointmentController;
@@ -25,10 +26,10 @@ Route::middleware([
     // Admin Routes
     Route::middleware(['admin'])->prefix('admin')->group(function () {
         Route::get('/dashboard', [AdminDashboardController::class, 'index'])->name('admin.dashboard');
-        
+
         Route::resource('barbers', BarberController::class);
         Route::resource('services', ServiceController::class);
-        
+
         // Admin Appointment Management
         Route::get('/appointments', [AppointmentController::class, 'index'])->name('admin.appointments.index');
         Route::patch('/appointments/{appointment}/status', [AppointmentController::class, 'updateStatus'])->name('admin.appointments.status');
