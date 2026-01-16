@@ -40,7 +40,7 @@
                                         </td>
                                         <td class="px-8 py-6 whitespace-nowrap">
                                             <div class="text-sm font-bold text-gray-900 dark:text-gray-200">{{ $appointment->user->name }}</div>
-                                            <div class="text-[10px] text-gray-400 font-medium uppercase tracking-wider">{{ $appointment->user->email }}</div>
+                                            <div class="text-[10px] text-gray-400 font-medium tracking-wider">{{ $appointment->user->email }}</div>
                                         </td>
                                         <td class="px-8 py-6 whitespace-nowrap">
                                             <div class="flex items-center">

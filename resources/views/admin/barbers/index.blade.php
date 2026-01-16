@@ -57,7 +57,7 @@
                                                     <i class="fas fa-phone-alt mr-2 text-[10px] text-gold"></i>
                                                     {{ $barber->phone }}
                                                 </div>
-                                                <div class="inline-flex items-center text-[10px] text-gray-400 font-bold uppercase tracking-tight">
+                                                <div class="inline-flex items-center text-[10px] text-gray-400 font-bold tracking-tight">
                                                     <i class="fas fa-envelope mr-2 text-[10px] text-gold/50"></i>
                                                     {{ $barber->email }}
                                                 </div>
