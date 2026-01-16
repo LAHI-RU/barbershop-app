@@ -77,7 +77,7 @@
         <section id="home" class="relative min-h-[90vh] flex items-center justify-center overflow-hidden">
             <!-- Background Image with Overlay -->
             <div class="absolute inset-0">
-                <img src="{{ asset('images/herobg.webp') }}" class="w-full h-full object-cover object-top opacity-70" alt="Barbershop Background">
+                <img src="{{ asset('assets/images/herobg.webp') }}" class="w-full h-full object-cover object-top opacity-70" alt="Barbershop Background">
                 <div class="absolute inset-0 bg-gradient-to-b from-black/50 via-black/40 to-black"></div>
             </div>
             
