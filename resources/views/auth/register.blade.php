@@ -21,7 +21,7 @@
     <div class="min-h-screen flex">
         <!-- Left Side - Background Image -->
         <div class="hidden lg:block lg:w-1/2 relative overflow-hidden">
-            <img src="{{ asset('images/herobg.webp') }}" class="absolute inset-0 w-full h-full object-cover" alt="Barbershop">
+            <img src="{{ asset('assets/images/herobg.webp') }}" class="absolute inset-0 w-full h-full object-cover" alt="Barbershop">
             <div class="absolute inset-0 bg-gradient-to-l from-black via-black/50 to-transparent"></div>
             
             <!-- Decorative Content -->
